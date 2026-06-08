@@ -30,7 +30,7 @@ const impactData = [
     id: 3,
     icon: <HeartHandshake className="w-10 h-10" />,
     number: 50172,
-    suffix: "%",
+    suffix: "+",
     label: "Condoms Distributed",
     description: "Improved reproductive health awareness access",
   },
