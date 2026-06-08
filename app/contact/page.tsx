@@ -4,154 +4,110 @@ import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setSuccess("");
-    setError("");
-
     if (!captchaToken) {
-      setError("Please verify reCAPTCHA");
+      alert("Please complete the reCAPTCHA");
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ...formData,
+          name,
+          email,
+          message,
           captchaToken,
         }),
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Failed to send message");
+      if (res.ok) {
+        setSuccess("Message sent successfully!");
+        setName("");
+        setEmail("");
+        setMessage("");
+        setCaptchaToken(null);
+      } else {
+        setSuccess("Failed to send message.");
       }
-
-      setSuccess("Message sent successfully!");
-
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-
-      setCaptchaToken(null);
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (error) {
+      setSuccess("Something went wrong.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#055D5D] to-[#98027F] py-20 px-6">
-      <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
+    <div className="max-w-2xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
 
-        <h1 className="text-4xl font-bold text-white mb-3 text-center">
-          Contact Us
-        </h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
 
-        <p className="text-white/80 text-center mb-10">
-          We would love to hear from you
-        </p>
+        {/* Name */}
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full border p-3 rounded"
+          required
+        />
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Email */}
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full border p-3 rounded"
+          required
+        />
 
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
-            onChange={handleChange}
-            required
-            className="w-full p-4 rounded-xl bg-white/20 text-white placeholder-white/70 outline-none"
+        {/* Message */}
+        <textarea
+          placeholder="Your Message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="w-full border p-3 rounded h-32"
+          required
+        />
+
+        {/* reCAPTCHA */}
+        <div>
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+            onChange={(token: string | null) => setCaptchaToken(token)}
           />
+        </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full p-4 rounded-xl bg-white/20 text-white placeholder-white/70 outline-none"
-          />
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-blue-600 text-white px-6 py-3 rounded"
+        >
+          {loading ? "Sending..." : "Send Message"}
+        </button>
 
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="w-full p-4 rounded-xl bg-white/20 text-white placeholder-white/70 outline-none"
-          />
-
-          <textarea
-            name="message"
-            placeholder="Write your message..."
-            rows={6}
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="w-full p-4 rounded-xl bg-white/20 text-white placeholder-white/70 outline-none"
-          />
-
-          <div className="flex justify-center">
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-              onChange={(token) => setCaptchaToken(token)}
-            />
-          </div>
-
-          {success && (
-            <p className="text-green-300 text-center">{success}</p>
-          )}
-
-          {error && (
-            <p className="text-red-300 text-center">{error}</p>
-          )}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-white text-[#055D5D] font-bold py-4 rounded-xl hover:scale-105 transition duration-300 disabled:opacity-50"
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-
-        </form>
-      </div>
-    </section>
+        {/* Status */}
+        {success && (
+          <p className="mt-2 text-green-600">{success}</p>
+        )}
+      </form>
+    </div>
   );
 }
