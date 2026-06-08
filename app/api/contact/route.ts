@@ -8,10 +8,10 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { name, email, message, captchaToken } = body;
 
-    // 1. Validate input
+    // 1. Validate fields
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Missing fields" },
+        { error: "Missing required fields" },
         { status: 400 }
       );
     }
@@ -28,9 +28,7 @@ export async function POST(req: Request) {
       "https://www.google.com/recaptcha/api/siteverify",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
           secret: process.env.RECAPTCHA_SECRET_KEY || "",
           response: captchaToken,
@@ -47,13 +45,14 @@ export async function POST(req: Request) {
       );
     }
 
-    // 3. SEND EMAIL (NO GMAIL SMTP ANYMORE 🚀)
+    // 3. SEND EMAIL (RESEND ONLY)
     await resend.emails.send({
       from: "YAWE Contact <onboarding@resend.dev>",
-      to: "yourgmail@gmail.com",
+      to: process.env.CONTACT_RECEIVER!,
       subject: `New Contact Message from ${name}`,
+      replyTo: email,
       html: `
-        <h3>New Message</h3>
+        <h2>New Contact Message</h2>
         <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Message:</b><br/>${message}</p>
@@ -65,7 +64,8 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error) {
-    console.error(error);
+    console.error("API ERROR:", error);
+
     return NextResponse.json(
       { error: "Server error" },
       { status: 500 }
