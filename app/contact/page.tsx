@@ -1,50 +1,44 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import ReCAPTCHA from "react-google-recaptcha"
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactPage() {
-
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     message: "",
-  })
+  });
 
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
-
-  const [loading, setLoading] = useState(false)
-
-  const [success, setSuccess] = useState("")
-  const [error, setError] = useState("")
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    })
-  }
+    }));
+  };
 
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
-    e.preventDefault()
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    setSuccess("")
-    setError("")
+    setSuccess("");
+    setError("");
 
     if (!captchaToken) {
-      setError("Please verify reCAPTCHA")
-      return
+      setError("Please verify reCAPTCHA");
+      return;
     }
 
-    setLoading(true)
+    setLoading(true);
 
     try {
-
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -54,36 +48,33 @@ export default function ContactPage() {
           ...formData,
           captchaToken,
         }),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
-      if (response.ok) {
-
-        setSuccess("Message sent successfully!")
-
-        setFormData({
-          fullName: "",
-          email: "",
-          phone: "",
-          message: "",
-        })
-
-      } else {
-        setError(data.message)
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send message");
       }
 
-    } catch (err) {
-      setError("Something went wrong")
-    }
+      setSuccess("Message sent successfully!");
 
-    setLoading(false)
-  }
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+
+      setCaptchaToken(null);
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-
     <section className="min-h-screen bg-gradient-to-br from-[#055D5D] to-[#98027F] py-20 px-6">
-
       <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-white/20">
 
         <h1 className="text-4xl font-bold text-white mb-3 text-center">
@@ -139,34 +130,28 @@ export default function ContactPage() {
           <div className="flex justify-center">
             <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-              onChange={(token: string | null) => setCaptchaToken(token)}
+              onChange={(token) => setCaptchaToken(token)}
             />
           </div>
 
           {success && (
-            <p className="text-green-300 text-center">
-              {success}
-            </p>
+            <p className="text-green-300 text-center">{success}</p>
           )}
 
           {error && (
-            <p className="text-red-300 text-center">
-              {error}
-            </p>
+            <p className="text-red-300 text-center">{error}</p>
           )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-white text-[#055D5D] font-bold py-4 rounded-xl hover:scale-105 transition duration-300"
+            className="w-full bg-white text-[#055D5D] font-bold py-4 rounded-xl hover:scale-105 transition duration-300 disabled:opacity-50"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
 
         </form>
-
       </div>
-
     </section>
-  )
+  );
 }

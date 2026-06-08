@@ -27,7 +27,7 @@ const boardMembers = [
   {
     name: "Dr. JUSTICE MINOFU",
     role: "Board Member",
-    image: "/team/justice.jpg",
+    image: "/team/Justice.jpg",
     description:
       "With more than 10 years of experience leading projects for child protection, positive youth development and women empowerment in rural and urban areas in Tanzania. Vicent Laurent is an impact-driven, growth-focused development specialist with a track record of success in the non-profit sector. His expertise and experience have been instrumental in providing advice and technical support on the development of many non-governmental organizations and government institutions. Beyond his professional pursuits, Vicent Laurent holds a deep passion and skills for project monitoring, evaluation and learning development as well as grant management. He has dedicated himself to supporting other organizations in the development of M&E systems, strategic planning and organizational governance systems in their journey of development. His commitment to continuous growth and leadership refinement is underscored by his graduation from St. Augustine University of Tanzania which further honored his career development.",
   },
