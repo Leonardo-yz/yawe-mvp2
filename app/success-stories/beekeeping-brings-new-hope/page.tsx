@@ -1,171 +1,123 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
-export default function BeekeepingStoryPage() {
-  const [showInsight, setShowInsight] = useState(false);
+export const metadata = {
+  title:
+    "Women Leading Climate Resilience Through Beekeeping in Shinyanga | YAWE",
+  description:
+    "A YAWE success story on how women, youth, and people with disabilities are building climate resilience through beekeeping in Shinyanga.",
+};
 
+export default function BeekeepingBringsNewHopePage() {
   return (
-    <main className="bg-white">
+    <main className="min-h-screen bg-white text-slate-900">
+      <section className="mx-auto max-w-5xl px-6 py-10">
+        {/* Success Story Label */}
+        <div className="mb-6 inline-block bg-[#98027F] px-8 py-2 text-xl font-bold uppercase tracking-wide text-white">
+          Success Story
+        </div>
 
-      {/* HERO */}
-      <section className="bg-gradient-to-r from-[#055D5D] to-[#98027F] text-white py-20">
-        <div className="container mx-auto px-6 max-w-5xl">
+        {/* Title */}
+        <h1 className="mx-auto max-w-4xl text-center text-2xl font-semibold uppercase leading-snug tracking-wide md:text-3xl">
+          Women Leading Climate Resilience Through Beekeeping in Shinyanga
+        </h1>
 
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Beekeeping Brings New Hope for Climate Resilience and Economic Empowerment
-          </h1>
+        <div className="mt-8 grid gap-8 md:grid-cols-[270px_1fr]">
+          {/* LEFT COLUMN */}
+          <aside className="md:border-r-4 md:border-[#055D5D] md:pr-6">
+            <div className="overflow-hidden">
+              <Image
+                src="/stories/eliza33.jpg"
+                alt="Elizabeth inspecting a beehive in Mwantino Forest reserve"
+                width={500}
+                height={360}
+                className="h-auto w-full object-cover"
+              />
+            </div>
 
-          <p className="mt-4 text-white/90">
-            A real-life transformation story from Bugimbagu Village
-          </p>
+            <p className="mt-3 text-center text-sm italic leading-5 text-slate-700">
+              Elizabeth inspecting the beehive in Mwantino Forest reserve,
+              <br />
+              Photo credit: YAWE, 2025
+            </p>
 
+            <div className="mt-10 text-center">
+              <p className="text-base leading-6 text-slate-800">
+                Elizabeth, one of the beneficiaries, shared her experience:
+              </p>
+
+              <blockquote className="mt-8 text-base leading-6 text-slate-800">
+                “For many years, I wanted to engage in an activity that could
+                help me earn income and adapt to climate change, but I lacked
+                the skills and the capital to start.
+                <br />
+                <br />
+                Through this project, we received 25 beehives and training in
+                modern beekeeping practices. This support has opened a new
+                chapter in our lives and given us hope for a better future for
+                our families.”
+              </blockquote>
+            </div>
+          </aside>
+
+          {/* RIGHT COLUMN */}
+          <article className="text-center text-base leading-7 text-slate-800 md:px-2">
+            <p>
+              In Shinyanga, women, youth, and people with disabilities have
+              limited access to resources and opportunities for adapting to
+              climate change and engaging in the sustainable economy.
+            </p>
+
+            <p className="mt-6">
+              To tackle these problems, YAWE launched the Inclusive Climate
+              Entrepreneurship Project. This project aims to empower marginalized
+              groups through climate-smart beekeeping.
+            </p>
+
+            <p className="mt-6">
+              The project helps at-risk communities to create sustainable income
+              sources while improving their ability to adapt to the impacts of
+              climate change. Beneficiaries received hands-on training through a
+              group-based learning model that covers financial literacy,
+              business skills, and the entire beekeeping value chain.
+            </p>
+
+            <p className="mt-6">
+              Use of local languages ensured that everyone could meaningfully
+              benefit equally. Each group also received 25 modern beehives to
+              help them start or grow their climate-smart beekeeping activities.
+            </p>
+
+            <p className="mt-6">
+              YAWE, in partnership with the Tanzania Forest Service in
+              Shinyanga District, has reached 114 beneficiaries, including
+              women, youth, and people with disabilities.
+            </p>
+
+            <p className="mt-6">
+              This accomplishment shows the project’s strong impact on the
+              community and its growing reach. One beneficiary, Elizabeth, shared
+              her experience:
+            </p>
+
+            <p className="mt-6">
+              The project has improved technical skills, increased income
+              opportunities, and enhanced resilience to climate-related risks
+              among beneficiaries.
+            </p>
+
+            <p className="mt-8">
+              To learn more about supporting this inclusive climate
+              entrepreneurship program, visit{" "}
+              <span className="font-semibold text-[#055D5D]">
+                www.yawe.or.tz
+              </span>
+              .
+            </p>
+          </article>
         </div>
       </section>
 
-      {/* IMAGE + INTRO */}
-      <section className="py-16">
-        <div className="container mx-auto px-6 max-w-5xl">
-
-          {/* IMAGE PLACEHOLDER */}
-          <div className="relative h-[400px] bg-gray-200 rounded-3xl overflow-hidden flex items-center justify-center">
-
-            {/* Replace this later with real image */}
-            <span className="text-gray-600 font-medium">
-        
-                         <Image
-                           src="/stories/eliza33.jpg"
-                           alt="Guaranteeing the Future Project"
-                           fill
-                           className="object-cover"
-                         /> 
-
-              Image Placeholder (Elizabeth Beekeeping Project)
-            </span>
-
-          </div>
-
-          {/* STORY CONTENT */}
-          <div className="mt-10 space-y-6 text-gray-700 leading-relaxed text-lg">
-
-            <p>
-              Elizabeth, a resident of Bugimbagu Village, spent many years
-              struggling to provide for her family. As a housewife dependent on
-              subsistence farming, she faced recurring crop failures caused by
-              prolonged droughts and changing weather patterns linked to climate change.
-            </p>
-
-            <p>
-              With limited livelihood options and no reliable source of income,
-              meeting her family's basic needs became increasingly difficult.
-            </p>
-
-            <p>
-              Her situation began to change when she joined a local beekeeping group
-              supported through the YAWE project. Through the project, Elizabeth
-              received training in modern beekeeping practices and gained access
-              to improved beekeeping equipment, including beehives.
-            </p>
-
-            <p>
-              The initiative introduced her to a climate-resilient livelihood that
-              requires fewer natural resources than traditional farming while
-              offering new income-generating opportunities.
-            </p>
-
-          </div>
-
-          {/* BENEFICIARY HIGHLIGHT */}
-          <div className="mt-12 bg-[#055D5D] text-white rounded-3xl p-8 shadow-lg">
-
-            <h3 className="text-2xl font-bold mb-4">
-              💬 What Elizabeth Says
-            </h3>
-
-            <p className="text-white/90 italic text-lg">
-              "Today, I speak with renewed confidence and optimism about the future.
-              Beekeeping has given me hope. I can now support my family and plan
-              for a better future through honey production."
-            </p>
-
-          </div>
-
-          {/* CONTINUATION */}
-          <div className="mt-10 space-y-6 text-gray-700 leading-relaxed text-lg">
-
-            <p>
-              Today, Elizabeth speaks with renewed confidence and optimism about the future.
-              The knowledge and skills she has acquired have empowered her to pursue
-              an alternative source of income that is less vulnerable to the effects of climate change.
-            </p>
-
-            <p>
-              She believes that the sale of honey and other hive products will improve her
-              household income, strengthen her family's financial security, and reduce her
-              dependence on others.
-            </p>
-
-            <p>
-              The project has not only provided practical skills but has also restored hope
-              for a more sustainable future for Elizabeth and other members of her community.
-            </p>
-
-          </div>
-
-          {/* INTERACTIVE INSIGHT */}
-          <div className="mt-12">
-
-            <button
-              onClick={() => setShowInsight(!showInsight)}
-              className="bg-[#98027F] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#7a0266] transition"
-            >
-              {showInsight ? "Hide Impact Insight" : "View Climate Impact Insight"}
-            </button>
-
-            {showInsight && (
-              <div className="mt-6 bg-gray-100 p-6 rounded-2xl border-l-4 border-[#055D5D]">
-
-                <h4 className="text-xl font-bold mb-3">
-                  🌍 Why Beekeeping Matters
-                </h4>
-
-                <ul className="space-y-2 text-gray-700">
-                  <li>✔ Requires minimal land and water</li>
-                  <li>✔ Increases income in drought-prone areas</li>
-                  <li>✔ Supports biodiversity and pollination</li>
-                  <li>✔ Builds climate resilience for rural households</li>
-                </ul>
-
-              </div>
-            )}
-
-          </div>
-
-          {/* CTA */}
-          <div className="mt-16 text-center">
-
-            <h3 className="text-3xl font-bold mb-4">
-              Help Us Empower More Women Like Elizabeth
-            </h3>
-
-            <p className="text-gray-600 mb-6">
-              Your support can transform lives through climate-smart livelihoods.
-            </p>
-
-            <Link
-              href="/donate"
-              className="inline-block bg-[#055D5D] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#044848]"
-            >
-              Support This Work
-            </Link>
-
-          </div>
-
-        </div>
-      </section>
-
+      <div className="mt-10 h-10 bg-[#055D5D]" />
     </main>
   );
 }

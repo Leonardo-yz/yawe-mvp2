@@ -1,184 +1,127 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 
-import { CheckCircle, TrendingUp, Leaf, Users, Link } from "lucide-react";
+export const metadata = {
+  title:
+    "From Climate Vulnerability to Climate Entrepreneurship | YAWE Success Story",
+  description:
+    "Kashinje's journey to resilience through climate-smart beekeeping, entrepreneurship training, and sustainable livelihoods in Shinyanga.",
+};
 
 export default function JourneyToResiliencePage() {
   return (
-    <main className="min-h-screen bg-white text-gray-800">
-      {/* HERO SECTION */}
-      <section className="relative py-20 px-6 bg-gradient-to-br from-[#055D5D] to-[#055D5D] text-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            From Climate Vulnerability to Climate Entrepreneurship
-          </h1>
-          <p className="mt-4 text-lg text-white">
-            Kashinje’s Journey to Resilience in Shinyanga, Tanzania
-          </p>
+    <main className="min-h-screen bg-white text-slate-900">
+      <section className="mx-auto max-w-5xl px-6 py-6">
+        <div className="mb-4 inline-block bg-[#98027F] px-8 py-1.5 text-2xl font-semibold uppercase tracking-wide text-white">
+          Success Story
+        </div>
 
-          {/* Impact Pills */}
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <span className="px-4 py-2 bg-white/20 shadow-md rounded-full text-sm">
-              🌾 Climate Adaptation
-            </span>
-            <span className="px-4 py-2 bg-white/20 shadow-md rounded-full text-sm">
-              🐝 Beekeeping Enterprise
-            </span>
-            <span className="px-4 py-2 bg-white/20 shadow-md rounded-full text-sm">
-              👨‍🌾 Youth Empowerment
-            </span>
-          </div>
+        <h1 className="text-center text-2xl font-semibold uppercase leading-snug tracking-tight md:text-3xl">
+          From Climate Vulnerability to Climate Entrepreneurship: Kashinje’s
+          Journey to Resilience
+        </h1>
+
+        <div className="mt-5 grid gap-6 md:grid-cols-[275px_1fr]">
+          {/* LEFT COLUMN */}
+          <aside className="text-center md:border-r-4 md:border-[#055D5D] md:pr-5">
+            <Image
+              src="/stories/kashinje.jpg"
+              alt="Kashinje inspecting beehives in Shinyanga"
+              width={500}
+              height={430}
+              className="h-auto w-full object-cover"
+              priority
+            />
+
+            <p className="mt-2 text-base italic leading-6 text-slate-800">
+              Kashinje inspecting beehives in Shitimba Village, Shinyanga,
+              Photo by YAWE, 2025
+            </p>
+
+            <p className="mt-8 text-base leading-6 text-slate-800">
+              He shares:
+            </p>
+
+            <blockquote className="mt-3 text-base leading-6 text-slate-800">
+              “Before this project, I depended mostly on small farming and
+              tailoring, but climate change made farming unreliable and income
+              was never stable.
+              <br />
+              <br />
+              Through YAWE’s support, I received training in climate-smart
+              beekeeping, entrepreneurship, and business development. I now have
+              17 occupied beehives and expect to harvest more than 20 kilograms
+              of honey in the first season.
+              <br />
+              <br />
+              This opportunity has helped me build a sustainable source of
+              income, protect the environment, and inspire other young people in
+              my community.”
+            </blockquote>
+          </aside>
+
+          {/* RIGHT COLUMN */}
+          <article className="text-center text-base leading-6 text-slate-900 md:px-2">
+            <p>
+              In Shitimba Village, Shinyanga, climate change has continued to
+              affect agricultural productivity and household income, especially
+              among young people and vulnerable families who depend on
+              climate-sensitive livelihoods.
+            </p>
+
+            <p className="mt-5">
+              Kashinje, a young entrepreneur and member of the WIZABHUNZUKI
+              Group, experienced these challenges directly. His income from
+              farming and tailoring was unreliable, and limited livelihood
+              opportunities made it difficult to support his family and plan for
+              the future.
+            </p>
+
+            <p className="mt-5">
+              Although he had interest in beekeeping, he lacked technical
+              knowledge, modern equipment, startup support, and access to
+              business development services that could help him turn the idea
+              into a sustainable enterprise.
+            </p>
+
+            <p className="mt-5">
+              Through the Inclusive Climate Entrepreneurship Project, YAWE
+              supported Kashinje with climate-smart beekeeping training,
+              entrepreneurship skills, business development support, mentorship,
+              and modern beekeeping equipment.
+            </p>
+
+            <p className="mt-5">
+              With technical support from the Tanzania Forest Services, Kashinje
+              established 11 traditional beehives and received 6 modern
+              beehives. Today, he has 17 occupied beehives and expects to
+              harvest more than 20 kilograms of honey during the first
+              production season.
+            </p>
+
+            <p className="mt-5">
+              This transformation has diversified his household income,
+              strengthened his resilience to climate-related shocks, and opened
+              a new pathway for sustainable entrepreneurship in his community.
+            </p>
+
+            <p className="mt-5">
+              Kashinje’s journey demonstrates how climate-smart entrepreneurship
+              can protect forests, create income opportunities, promote
+              sustainable natural resource management, and inspire young people
+              to take part in local climate solutions.
+            </p>
+
+            <p className="mt-5">
+              YAWE continues to promote inclusive climate entrepreneurship as a
+              pathway for building resilient communities and creating
+              sustainable livelihoods. To learn more and support this
+              initiative, visit www.yawe.or.tz
+            </p>
+          </article>
         </div>
       </section>
 
-      {/* STORY INTRO */}
-      <section className="max-w-5xl mx-auto px-6 py-10">
-        <div className="backdrop-blur-xl bg-white/70 border border-gray-200 rounded-2xl shadow-xl p-8">
-          <p className="text-gray-700 leading-relaxed">
-            Climate change continues to threaten rural livelihoods in Shinyanga,
-            disproportionately affecting women, youth, and persons with disabilities.
-            Recurring droughts and declining agricultural productivity have increased
-            poverty and reduced resilience.
-          </p>
-        </div>
-      </section>
-
-
-    {/* IMAGE PLACEHOLDER */}
-          <div className="relative h-[1000px] bg-gray-200 rounded-3xl overflow-hidden flex items-center justify-center">
-
-            {/* Replace this later with real image */}
-            <span className="text-gray-600 font-medium">
-        
-                         <Image
-                           src="/stories/kashinje.jpg"
-                           alt="Guaranteeing the Future Project"
-                           fill
-                           className="object-cover"
-                         /> 
-
-              Image Placeholder (Kashinje)
-            </span>
-``
-          </div>
-
-
-      {/* BENEFICIARY QUOTE */}
-      <section className="max-w-5xl mx-auto px-6 py-6">
-        <div className="bg-gradient-to-r from-gray-50 to-white border rounded-2xl p-8 shadow-md">
-          <p className="italic text-gray-700 text-lg">
-            “It was very difficult for me to cope with the changing climate conditions.
-            In the village, opportunities are very limited compared to urban areas.”
-          </p>
-          <p className="mt-3 font-semibold text-gray-900">
-            — Kashinje, WIZABHUNZUKI Group Member
-          </p>
-        </div>
-      </section>
-
-      {/* BEFORE / AFTER SECTION */}
-      <section className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-6">
-        {/* BEFORE */}
-        <div className="backdrop-blur-xl bg-red-50/60 border border-red-100 rounded-2xl p-6 shadow-lg">
-          <h3 className="text-xl font-bold text-red-600 mb-4">Before the Project</h3>
-          <ul className="space-y-3 text-gray-700">
-            <li>🌾 Crop losses due to drought</li>
-            <li>🧵 Declining tailoring income</li>
-            <li>💸 Unstable household income</li>
-            <li>🌍 Limited adaptation options</li>
-          </ul>
-        </div>
-
-        {/* AFTER */}
-        <div className="backdrop-blur-xl bg-green-50/60 border border-green-100 rounded-2xl p-6 shadow-lg">
-          <h3 className="text-xl font-bold text-green-600 mb-4">After Climate Entrepreneurship Project</h3>
-          <ul className="space-y-3 text-gray-700">
-            <li>🐝 17 active beehives (11 traditional + 6 modern)</li>
-            <li>🍯 Expected +20kg honey harvest</li>
-            <li>💰 Diversified income streams</li>
-            <li>🌱 Climate-resilient livelihood</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* VISUAL IMPACT STATS */}
-      <section className="max-w-5xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
-        <div className="backdrop-blur-xl bg-white border rounded-2xl p-6 shadow-md text-center">
-          <Users className="mx-auto text-blue-600" />
-          <h4 className="text-2xl font-bold mt-2">1 Youth</h4>
-          <p className="text-gray-600">Directly transformed</p>
-        </div>
-
-        <div className="backdrop-blur-xl bg-white border rounded-2xl p-6 shadow-md text-center">
-          <Leaf className="mx-auto text-green-600" />
-          <h4 className="text-2xl font-bold mt-2">17 Hives</h4>
-          <p className="text-gray-600">Climate-smart beekeeping</p>
-        </div>
-
-        <div className="backdrop-blur-xl bg-white border rounded-2xl p-6 shadow-md text-center">
-          <TrendingUp className="mx-auto text-orange-500" />
-          <h4 className="text-2xl font-bold mt-2">Income Growth</h4>
-          <p className="text-gray-600">Diversified livelihood</p>
-        </div>
-      </section>
-
-      {/* MAIN STORY SECTION */}
-      <section className="max-w-5xl mx-auto px-6 py-10 space-y-6 leading-relaxed">
-        <div className="backdrop-blur-xl bg-white/80 border rounded-2xl shadow-lg p-8">
-          <p>
-            Through the Climate Entrepreneurship Project implemented by YAWE,
-            Kashinje received training in climate-smart beekeeping and modern equipment,
-            including beehives and protective gear.
-          </p>
-
-          <p className="mt-4">
-            With support from the Tanzania Forest Service (TFS), he gained practical skills
-            in hive management and honey production, transforming beekeeping into a business opportunity.
-          </p>
-
-          <p className="mt-4">
-            Today, Kashinje is not only improving his household income but also mentoring
-            other young people in his community to adopt sustainable enterprises.
-          </p>
-        </div>
-      </section>
-
-      {/* SECOND QUOTE */}
-      <section className="max-w-5xl mx-auto px-6 py-6">
-        <div className="bg-white border rounded-2xl p-8 shadow-md">
-          <p className="italic text-gray-700 text-lg">
-            “Beekeeping is one of the best income-generating activities because it does not
-            destroy forest resources and works in almost any weather condition.”
-          </p>
-          <p className="mt-3 font-semibold">— Kashinje</p>
-        </div>
-      </section>
-
-      {/* DONOR IMPACT MESSAGE */}
-      <section className="max-w-5xl mx-auto px-6 py-12">
-        <div className="backdrop-blur-xl bg-blue-50/60 border border-blue-100 rounded-2xl p-10 shadow-lg text-center">
-          <h3 className="text-2xl font-bold mb-3">
-            Transforming Lives Through Climate Investment
-          </h3>
-          <p className="text-gray-700">
-            The Climate Entrepreneurship Project demonstrates how targeted investment in
-            skills, mentorship, and productive assets enables youth to build resilient
-            livelihoods and contribute to sustainable environmental management.
-          </p>
-
-          <div className="mt-10 flex justify-center">
-            <div className="flex items-center gap-2 text-green-700 font-semibold">
-              <CheckCircle />
-              Sustainable Impact Achieved
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-        {/* CALL TO ACTION */}
+      <div className="mt-4 h-10 bg-[#055D5D]" />
     </main>
   );
 }
