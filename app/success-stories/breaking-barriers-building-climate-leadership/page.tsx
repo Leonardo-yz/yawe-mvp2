@@ -23,7 +23,7 @@ export default function BreakingBarriersClimateLeadershipPage() {
           {/* LEFT COLUMN */}
           <aside className="text-center md:border-r-4 md:border-[#055D5D] md:pr-5">
             <Image
-              src="/stories/eunice.jpg"
+              src="/stories/eunice1.jpg"
               alt="Eunice participating in the advocacy meeting"
               width={500}
               height={430}

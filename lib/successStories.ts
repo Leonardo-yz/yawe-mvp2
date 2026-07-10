@@ -47,7 +47,7 @@ Through beekeeping training, she gained new skills and income.
     slug: "breaking-barriers-building-climate-leadership",
     title: "Breaking Barriers, Building Climate Leadership In Shinyanga",
     category: "Climate Action",
-    image: "/stories/eunice.jpg",
+    image: "/stories/eunice1.jpg",
     excerpt: "In Shinyanga, people with disabilities are disproportionately affected by the impacts of climate change.",
     content: "To-date, the project has trained 23 young leaders, of whom 26% are people with disabilities. They have been empowered as community change agents for climate action. Through these interventions, young leaders are now participating in and leading advocacy efforts for the implementation of climate policies and the inclusion of marginalized groups in climate-related decision-making bodies within their communities.",
     beneficiaries: 23,
