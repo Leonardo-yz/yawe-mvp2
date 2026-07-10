@@ -10,8 +10,8 @@ export const metadata = {
 export default function WaterScarcityPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto max-w-6xl px-6 py-6">
-        <h1 className="mx-auto max-w-5xl text-center text-2xl font-semibold leading-snug tracking-tight text-[#98027F] md:text-3xl">
+      <section className="mx-auto max-w-6xl px-6 py-19">
+        <h1 className="text-center text-2xl font-semibold uppercase leading-snug tracking-tight md:text-3xl">
           From Water Scarcity to a Thriving Orange-Fleshed Sweet Potato Nursery:
           <br />
           How REACTS-IN Transformed Masunga Nasi&apos;s Livelihood

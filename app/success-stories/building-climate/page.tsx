@@ -16,7 +16,7 @@ export default function BuildingClimatePage() {
         </div>
 
         {/* PAGE TITLE */}
-        <h1 className="mx-auto max-w-4xl text-center text-2xl font-semibold leading-snug tracking-tight text-[#98027F] md:text-3xl">
+        <h1 className="text-center text-2xl font-semibold uppercase leading-snug tracking-tight md:text-3xl">
           How Edina Evodius is Building Climate Resilience
         </h1>
 

@@ -15,7 +15,7 @@ export default function StevesClimateEntrepreneurshipJourneyPage() {
           Success Story
         </div>
 
-        <h1 className="text-center text-3xl font-normal leading-tight tracking-tight">
+        <h1 className="text-center text-2xl font-semibold uppercase leading-snug tracking-tight md:text-3xl">
           Steve’s Climate Entrepreneurship Journey in Shinyanga
         </h1>
 

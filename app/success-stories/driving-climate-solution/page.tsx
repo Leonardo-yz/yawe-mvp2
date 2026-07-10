@@ -10,8 +10,8 @@ export const metadata = {
 export default function DrivingClimateSolutionPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto max-w-5xl px-6 py-6">
-        <h1 className="mx-auto max-w-4xl text-center text-3xl font-semibold leading-snug tracking-tight text-[#98027F] md:text-4xl">
+      <section className="mx-auto max-w-5xl px-6 py-19">
+        <h1 className="text-center text-2xl font-semibold uppercase leading-snug tracking-tight md:text-3xl">
           Empowered Youth Driving Climate Solutions in Shinyanga Communities.
         </h1>
 

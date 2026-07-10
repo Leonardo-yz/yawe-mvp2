@@ -10,9 +10,9 @@ export const metadata = {
 export default function BeekeepingBringsNewHopePage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto max-w-5xl px-6 py-10">
+      <section className="mx-auto max-w-5xl px-6 py-6">
         {/* Success Story Label */}
-        <div className="mb-6 inline-block bg-[#98027F] px-8 py-2 text-xl font-bold uppercase tracking-wide text-white">
+        <div className="mb-4 inline-block bg-[#98027F] px-8 py-1.5 text-2xl font-semibold uppercase tracking-wide text-white">
           Success Story
         </div>
 
