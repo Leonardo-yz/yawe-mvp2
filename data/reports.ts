@@ -6,7 +6,7 @@ export const reports = [
     date: "January 2026",
     size: "1.74 MB",
     file: "/reports/REACTS-IN _Annual Report 2024.pdf",
-    cover: "/reports/report-cover1.jpg",
+    cover: "/reports/reactsin_2024.jpg",
   },
 
   {
@@ -15,7 +15,7 @@ export const reports = [
     category: "Annual Reports",
     date: "March 2026",
     size: "1.74 MB",
-    file: "/reports/REACTS-IN _Annual Report 2025.pdf",
+    file: "/reports/annual_report_2025.pdf",
     cover: "/reports/report-cover2.jpg",
   },
 
