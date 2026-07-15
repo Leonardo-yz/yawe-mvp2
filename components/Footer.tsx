@@ -24,7 +24,7 @@ const partners = [
   "/Donors-Logo/OneMillion-01.png",
   "/Donors-Logo/Yal.png",
   "/Donors-Logo/flavian.png",
-
+  "/Donors-Logo/aics.png",
   
 
   
